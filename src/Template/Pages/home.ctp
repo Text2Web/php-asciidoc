@@ -51,9 +51,9 @@ $this->layout = false;
 
 
 <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
-    <a class="navbar-brand mr-0 mr-md-2" href="">
-        <img src="/assets/wc-logo-only.png">
-    </a>
+    <!-- <a class="navbar-brand mr-0 mr-md-2" href="">
+        <img src="/img/hmtmcse-logo.png">
+    </a> -->
 
     <div class="navbar-nav-scroll">
         <ul class="navbar-nav bd-navbar-nav flex-row">
