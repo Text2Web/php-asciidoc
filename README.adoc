@@ -1,0 +1,18 @@
+== Text To Web
+
+
+=== How to Start?
+
+.Required 
+
+. Install *XAMPP* or *WAMP* or *MAMP*
+. Add php to path (for access php from cli)
+. Install composer
+
+*Clone & Setup the Project*
+```bash
+git clone https://github.com/TextToWeb/php-asciidoc.git
+cd php-asciidoc
+composer install
+bin/cake server
+```
