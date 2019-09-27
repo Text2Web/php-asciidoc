@@ -1,0 +1,48 @@
+{
+  "topics": [
+    {
+      "name": "Tutorial Page",
+      "block": "",
+      "id": "",
+      "icon": "",
+      "videoLink": "",
+      "videoPlayer": "YouTube | vimeo | html5",
+      "description": "",
+      "summery": "",
+      "url": "/java/basic/bismillah",
+      "filePath": "",
+      "parentId": ""
+    }
+  ],
+  "layout": {
+    "type": "",
+    "seo": {
+      "title": "",
+      "script": [
+        "js codes here",
+        "second js codes"
+      ],
+      "tags": [
+        {
+          "placedIn": "head / body",
+          "tag": {
+            "name": "",
+            "content": "",
+            "attrs": [
+              {
+                "name": "description",
+                "content": "something"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "settings": {
+    "defaultSeo": null,
+    "fbComments": false,
+    "fbShare": false,
+    "linkedInShare": false
+  }
+}
