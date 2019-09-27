@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\TexToWeb\TextToWeb;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
     public function index(Request $request){
-        return "Landing " . $request->path();
+        $texToWeb = new TextToWeb();
+        return $texToWeb->getPage($request->path());
     }
 }
