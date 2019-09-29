@@ -15,7 +15,7 @@ class TextToWeb
 
     public function getPage($url){
         $fileAndDirectoryService = new FileAndDirectoryService();
-        $layoutPath = PathResolver::getOutlineLayout();
+        $layoutPath = PathResolver::getLandingLayout();
         $layout = $fileAndDirectoryService->read($layoutPath);
         $descriptor = '';
         $page = '';

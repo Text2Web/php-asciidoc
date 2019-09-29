@@ -1,2 +1,2 @@
-start /max localhost:8000
+start /max http://localhost:8000
 php -S localhost:8000 -t public
