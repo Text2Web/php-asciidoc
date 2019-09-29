@@ -5,6 +5,8 @@ git clone https://github.com/TextToWeb/php-asciidoc.git
 cd php-asciidoc
 bash install
 bash start
+
+# Press Ctrl-C to quit.
 ```
 
 
