@@ -1,1 +1,1 @@
-runner/php/php.exe runner/composer.phar install
+./runner/php/php.exe runner/composer.phar install
