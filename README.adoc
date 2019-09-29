@@ -1,5 +1,7 @@
 == how to?
+Open your git bash then run the blow commands
 ```
+git clone https://github.com/TextToWeb/php-asciidoc.git
 bash install
 bash start
 ```
