@@ -6,3 +6,4 @@ Homestead.yaml
 .phpunit.result.cache
 *.lock
 /composer.lock
+/text-to-web/theme/cache/
