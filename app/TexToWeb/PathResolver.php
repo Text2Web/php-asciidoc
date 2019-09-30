@@ -9,6 +9,8 @@
 namespace App\TexToWeb;
 
 
+use phpDocumentor\Reflection\Types\Self_;
+
 class PathResolver
 {
 
@@ -20,11 +22,24 @@ class PathResolver
     public static $DETAILS = "details";
     public static $VIDEO = "video";
     public static $TOPICS = "topics";
+    public static $CONFIG_FILE = "config.json";
+
+
+    public static function getAppRoot()
+    {
+        return ROOT . DS;
+    }
+
+
+    public static function configFile()
+    {
+        return self::getAppRoot() . self::$CONFIG_FILE;
+    }
 
 
     public static function getTextToWebRoot()
     {
-        return ROOT . DS . self::$TEXT_TO_WEB_DIR;
+        return self::getAppRoot() . self::$TEXT_TO_WEB_DIR;
     }
 
     public static function getTopicsLayout()

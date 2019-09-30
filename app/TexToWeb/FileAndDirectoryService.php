@@ -39,13 +39,7 @@ class FileAndDirectoryService
         }
     }
 
-    public function getMenuInfo($path){
-        $menuInfo = $this->read(PathResolver::getMenuInfoByPath($path));
-        if ($menuInfo !== null){
-            return json_decode($menuInfo);
-        }
-        return null;
-    }
+
 
     public function formatName($name){
         $splitString = trim($name, ' ');
@@ -131,9 +125,7 @@ class FileAndDirectoryService
         return $menuList;
     }
 
-    public function getMenuList(){
-        return $this->scanMenuPool(PathResolver::getContentRoot());
-    }
+
 
     public static function isFile($location){
         return is_file($location);
