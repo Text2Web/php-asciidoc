@@ -10,6 +10,12 @@ namespace App\TexToWeb;
 
 
 
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
+use Twig\Loader\FilesystemLoader;
+
 class TextToWeb
 {
 
@@ -37,16 +43,27 @@ class TextToWeb
     }
 
     public function getPage($url){
+        $twigLoader = new FilesystemLoader(PathResolver::getThemeDir());
+        $twig = new Environment($twigLoader, [
+            'cache' => PathResolver::getThemeCacheDir(),
+        ]);
 
-
-        print_r($this->getDescriptor($url));
+//        print_r($this->getDescriptor($url));
 
         $fileAndDirectoryService = new FileAndDirectoryService();
         $layoutPath = PathResolver::getLandingLayout();
         $layout = $fileAndDirectoryService->read($layoutPath);
         $descriptor = '';
         $page = '';
-        return $layout;
+        try {
+            return $twig->render('landing.html', ['text' => 'Bismillah']);
+        } catch (LoaderError $e) {
+            return "404";
+        } catch (RuntimeError $e) {
+            return "404";
+        } catch (SyntaxError $e) {
+            return "404";
+        };
     }
 
 }

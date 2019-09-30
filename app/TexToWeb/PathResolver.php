@@ -67,9 +67,19 @@ class PathResolver
         return self::getLayout(self::$VIDEO);
     }
 
+    public static function getThemeDir()
+    {
+        return self::getTextToWebRoot() . DS . "theme" . DS;
+    }
+
+    public static function getThemeCacheDir()
+    {
+        return self::getThemeDir() . "cache";
+    }
+
     public static function getLayout($layoutName)
     {
-        return self::getTextToWebRoot() . DS . "theme" . DS . $layoutName . ".html";
+        return self::getThemeDir() . $layoutName . ".html";
     }
 
 
