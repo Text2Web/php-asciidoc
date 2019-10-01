@@ -2,40 +2,18 @@
   "layout": {
     "type": "details"
   },
-  "defaultTitle": "..:: HMTMCSE ::..",
-  "settings": {
-    "defaultSeo": {
-      "title": "..:: HMTMCSE ::..",
-      "tags": [
-        {
-          "placedIn": "head",
-          "tag": [
-            {
-              "name": "meta",
-              "attrs": {
-                "href": "#",
-                "rel": "canonical"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    "fbComments": false,
-    "linkedInShare": false,
-    "fbShare": false
-  },
+  "defaultTitle": "..:: Java Basic ::..",
   "topics": [
     {
       "name": "Bismillah",
-      "url": "/java/bismillah",
+      "url": "/java/basic/",
       "seo": {
-        "title": "Bismillah"
+        "title": "Java Basic"
       }
     },
     {
       "name": "Environment Setup",
-      "url": "/java/environment-Setup",
+      "url": "/java/environment-setup",
       "childs": [
         {
           "name": "JDK Setup",
@@ -51,13 +29,5 @@
       "name": "Input Output",
       "url": "/java/input-output"
     }
-  ],
-  "findReplace": {
-    "FACEBOOK_PAGE": "https://www.facebook.com/hmtmcsecom",
-    "GITHUB_PAGE": "https://github.com/hmtmcse-com",
-    "YOUTUBE_PAGE": "https://www.youtube.com/hmtmcse",
-    "PRIVACY": "/static-page/privacy",
-    "TERMS_AND_CONDITION": "/static-page/terms-and-condition",
-    "ABOUT": "/static-page/about"
-  }
+  ]
 }

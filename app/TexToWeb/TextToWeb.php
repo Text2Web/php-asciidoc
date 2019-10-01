@@ -26,14 +26,35 @@ class TextToWeb
     }
 
     public function getTextToWebData($url){
-        $url = rtrim($url, '/');
-        $urlFragments = empty($url) ? array() : explode("/", $url);
         $config = Config::getConfig();
+        $textToWebData = $this->getDescriptorData($url, $config);
+        $textToWebData->urlKey = $this->urlToUrlKey($textToWebData->url);
+        $textToWebData->topicNav = $this->getNavigation($textToWebData->descriptor);
+        return $textToWebData;
+    }
+
+    public function urlTrim($url){
+        $url = $this->urlTrimEndSlash($url);
+       return $this->urlTrimStartSlash($url);
+    }
+
+    public function urlTrimEndSlash($url){
+        return rtrim($url, '/');
+    }
+
+    public function urlTrimStartSlash($url){
+        return substr($url, 0, 1) === "/" ? substr($url, 1, strlen($url)) : $url;
+    }
+
+    public function getDescriptorData($url, $config){
+        $url = $this->urlTrim($url);
+        $urlFragments = empty($url) ? array() : explode("/", $url);
         $textToWebData = new TextToWebData();
         $fileAndDirectoryService = new FileAndDirectoryService();
         $urlToDir = str_replace("/", DS, $url);
         $urlFragments = array_reverse($urlFragments);
         $descriptorJson = "descriptor.json";
+        $textToWebData->url = $url;
         foreach ($urlFragments as $segment) {
             $path = $config->docRoot . DS . $urlToDir . DS . $descriptorJson;
             if (FileAndDirectoryService::isFile($path)) {
@@ -44,9 +65,6 @@ class TextToWeb
             }
         }
         $textToWebData->descriptor = $fileAndDirectoryService->getJsonFromFile($config->docRoot . DS . $descriptorJson);
-        $textToWebData->urlKey = $this->urlToUrlKey($url);
-        $textToWebData->url = $url;
-        $textToWebData->topicNav = $this->getNavigation($textToWebData->descriptor);
         return $textToWebData;
     }
 
@@ -66,10 +84,11 @@ class TextToWeb
                     $ttwNav->title = $this->title;
                 }
 
-                if (isset($topic->url) && $topic->url != "#"){
+                if (isset($topic->url) && $topic->url != "#") {
                     $ttwNav->url = $topic->url;
-                    $navKey = $this->urlToUrlKey($topic->url);
-                }else{
+                    $urlForKey = $this->urlTrim($topic->url);
+                    $navKey = $this->urlToUrlKey($urlForKey);
+                } else {
                     $ttwNav->url = "#";
                     $navKey = "#-" . $navIndex;
                     $navIndex++;
@@ -139,7 +158,6 @@ class TextToWeb
     }
 
     public function getPage($url){
-//        echo "<pre>";
         $twigLoader = new FilesystemLoader(PathResolver::getThemeDir());
         $twig = new Environment($twigLoader, [
             'cache' => PathResolver::getThemeCacheDir(),
@@ -151,8 +169,12 @@ class TextToWeb
 
         try {
             $pageData = $this->getPageData($textToWebData);
+//                    echo "<pre>";
+//            print_r($textToWebData->topicNav);
+//            print_r($textToWebData->descriptor->topics);
 //            print_r($pageData);
 //            print_r($textToWebData);
+
             return $twig->render($textToWebData->layout, ['page' => $pageData]);
         } catch (LoaderError $e) {
             return $e->getMessage();
