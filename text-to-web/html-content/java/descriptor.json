@@ -1,48 +1,63 @@
 {
-  "topics": [
-    {
-      "name": "Java",
-      "block": "",
-      "id": "",
-      "icon": "",
-      "videoLink": "",
-      "videoPlayer": "YouTube | vimeo | html5",
-      "description": "",
-      "summery": "",
-      "url": "/java/basic/bismillah",
-      "filePath": "",
-      "parentId": ""
-    }
-  ],
   "layout": {
-    "type": "",
-    "seo": {
-      "title": "",
-      "script": [
-        "js codes here",
-        "second js codes"
-      ],
+    "type": "outline"
+  },
+  "defaultTitle": "..:: HMTMCSE ::..",
+  "settings": {
+    "defaultSeo": {
+      "title": "..:: HMTMCSE ::..",
       "tags": [
         {
-          "placedIn": "head / body",
-          "tag": {
-            "name": "",
-            "content": "",
-            "attrs": [
-              {
-                "name": "description",
-                "content": "something"
+          "placedIn": "head",
+          "tag": [
+            {
+              "name": "meta",
+              "attrs": {
+                "href": "#",
+                "rel": "canonical"
               }
-            ]
-          }
+            }
+          ]
         }
       ]
-    }
-  },
-  "settings": {
-    "defaultSeo": null,
+    },
     "fbComments": false,
-    "fbShare": false,
-    "linkedInShare": false
+    "linkedInShare": false,
+    "fbShare": false
+  },
+  "topics": [
+    {
+      "name": "Bismillah",
+      "url": "/java/bismillah",
+      "seo": {
+        "title": "Bismillah"
+      }
+    },
+    {
+      "name": "Environment Setup",
+      "url": "/java/environment-Setup",
+      "childs": [
+        {
+          "name": "JDK Setup",
+          "url": "/java/environment-Setup/jdk-setup"
+        },
+        {
+          "name": "IDE Setup",
+          "url": "/java/environment-Setup/ide-setup"
+        }
+      ]
+    },
+    {
+      "name": "Input Output",
+      "url": "/java/input-output"
+    }
+  ],
+  "findReplace": {
+    "FACEBOOK_PAGE": "https://www.facebook.com/hmtmcsecom",
+    "GITHUB_PAGE": "https://github.com/hmtmcse-com",
+    "YOUTUBE_PAGE": "https://www.youtube.com/hmtmcse",
+    "PRIVACY": "/static-page/privacy",
+    "TERMS_AND_CONDITION": "/static-page/terms-and-condition",
+    "ABOUT": "/static-page/about"
   }
 }

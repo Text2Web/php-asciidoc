@@ -10,6 +10,7 @@ namespace App\TexToWeb;
 
 
 
+use stdClass;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -25,32 +26,32 @@ class TextToWeb
     }
 
     public function getTextToWebData($url){
-        $url = rtrim($url,'/');
-        $urlFragments = empty($url)? array() : explode("/", $url);
+        $url = rtrim($url, '/');
+        $urlFragments = empty($url) ? array() : explode("/", $url);
         $config = Config::getConfig();
         $textToWebData = new TextToWebData();
         $fileAndDirectoryService = new FileAndDirectoryService();
-        $urlToDir = str_replace("/", DS , $url);
+        $urlToDir = str_replace("/", DS, $url);
         $urlFragments = array_reverse($urlFragments);
         $descriptorJson = "descriptor.json";
         foreach ($urlFragments as $segment) {
             $path = $config->docRoot . DS . $urlToDir . DS . $descriptorJson;
-            if (FileAndDirectoryService::isFile($path)){
+            if (FileAndDirectoryService::isFile($path)) {
                 $textToWebData->descriptor = $fileAndDirectoryService->getJsonFromFile($path);
                 return $textToWebData;
-            }else{
-                $urlToDir = substr($urlToDir, 0, strlen($urlToDir) - strlen( DS . $segment));
+            } else {
+                $urlToDir = substr($urlToDir, 0, strlen($urlToDir) - strlen(DS . $segment));
             }
         }
         $textToWebData->descriptor = $fileAndDirectoryService->getJsonFromFile($config->docRoot . DS . $descriptorJson);
         $textToWebData->urlKey = $this->urlToUrlKey($url);
-        $textToWebData->url= $url;
-        $textToWebData->topicNav= $this->getNavigation($textToWebData->descriptor);
+        $textToWebData->url = $url;
+        $textToWebData->topicNav = $this->getNavigation($textToWebData->descriptor);
         return $textToWebData;
     }
 
     public function getNavigation($descriptor){
-        $topicNav = [];
+        $topicNav = new TopicNav();
         if (isset($descriptor->topics) && is_array($descriptor->topics)){
             $itemIndex = 1;
             $navIndex = 1;
@@ -65,7 +66,7 @@ class TextToWeb
                     $ttwNav->title = $this->title;
                 }
 
-                if (isset($topic->url)){
+                if (isset($topic->url) && $topic->url != "#"){
                     $ttwNav->url = $topic->url;
                     $navKey = $this->urlToUrlKey($topic->url);
                 }else{
@@ -84,7 +85,18 @@ class TextToWeb
                 if (isset($topic->seo)){
                     $ttwNav->seo = $topic->seo;
                 }
-                $topicNav[$navKey] = $ttwNav;
+                $topicNav->nav[$navKey] = $ttwNav;
+                $topicNav->meta[$navKey] = $ttwNav;
+
+                if (isset($topic->childs) && is_array($topic->childs)){
+                    $childTopic = new stdClass();
+                    $childTopic->topics = $topic->childs;
+                    $childs = $this->getNavigation($childTopic);
+                    $topicNav->nav[$navKey]->childs = $childs->nav;
+                    foreach ($childs->meta as $key => $child){
+                        $topicNav->meta[$key] = $child;
+                    }
+                }
             }
         }
         return $topicNav;
@@ -104,8 +116,8 @@ class TextToWeb
 
     public function getPageTitle($textToWebData){
         $title = $this->title;
-        if (isset($textToWebData->topicNav[$textToWebData->urlKey]->title)){
-            $title = $textToWebData->topicNav[$textToWebData->urlKey]->title;
+        if (isset($textToWebData->topicNav->meta[$textToWebData->urlKey]->title)){
+            $title = $textToWebData->topicNav->meta[$textToWebData->urlKey]->title;
         }elseif (isset($textToWebData->descriptor->defaultTitle)){
             $title = $textToWebData->descriptor->defaultTitle;
         }
@@ -117,11 +129,17 @@ class TextToWeb
     public function getPageData($textToWebData){
         $textToWebPageData = new TextToWebPageData();
         $textToWebPageData->title = $this->getPageTitle($textToWebData);
+        if (isset($textToWebData->topicNav->nav)){
+            $textToWebPageData->nav = $textToWebData->topicNav->nav;
+        }
+        if (isset($textToWebData->descriptor->blocks)) {
+            $textToWebPageData->blocks = $textToWebData->descriptor->blocks;
+        }
         return $textToWebPageData;
     }
 
     public function getPage($url){
-        echo "<pre>";
+//        echo "<pre>";
         $twigLoader = new FilesystemLoader(PathResolver::getThemeDir());
         $twig = new Environment($twigLoader, [
             'cache' => PathResolver::getThemeCacheDir(),
@@ -129,17 +147,19 @@ class TextToWeb
         $textToWebData = $this->getTextToWebData($url);
         $textToWebData = $this->setupView($textToWebData);
 
-        print_r($textToWebData);
+
 
         try {
             $pageData = $this->getPageData($textToWebData);
+//            print_r($pageData);
+//            print_r($textToWebData);
             return $twig->render($textToWebData->layout, ['page' => $pageData]);
         } catch (LoaderError $e) {
-            return "404";
+            return $e->getMessage();
         } catch (RuntimeError $e) {
-            return "404";
+            return $e->getMessage();
         } catch (SyntaxError $e) {
-            return "404";
+            return $e->getMessage();
         };
 //        echo "</pre>";
     }

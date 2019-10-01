@@ -3,16 +3,15 @@
  * Created by PhpStorm.
  * User: hmtmc
  * Date: 01/10/2019
- * Time: 07:08 PM
+ * Time: 10:25 PM
  */
 
 namespace App\TexToWeb;
 
 
-class TextToWebPageData
+class TopicNav
 {
-    public $title = "";
-    public $content = "";
+    public $meta = [];
     public $nav = [];
-    public $blocks = [];
+
 }

@@ -35,7 +35,17 @@
     },
     {
       "name": "Environment Setup",
-      "url": "/java/environment-Setup"
+      "url": "/java/environment-Setup",
+      "childs": [
+        {
+          "name": "JDK Setup",
+          "url": "/java/environment-Setup/jdk-setup"
+        },
+        {
+          "name": "IDE Setup",
+          "url": "/java/environment-Setup/ide-setup"
+        }
+      ]
     },
     {
       "name": "Input Output",
@@ -49,14 +59,14 @@
       "childs": [
         {
           "name": "Video Tutorial",
-          "url": "#",
+          "url": "/java",
           "icon": "fas fa-desktop fa-2x",
           "videoPlayer": "youtube",
           "summery": "Please Follow this link for see all video tutorial from YouTube. Here your will get lots of tutorial."
         },
         {
           "name": "বাংলা টিউটোরিয়াল",
-          "url": "#",
+          "url": "/java/basic",
           "icon": "fas fa-file fa-2x",
           "videoPlayer": "youtube",
           "summery": "সাইটের সব বাংলা টিউটোরিয়াল  দেখতে এই লিংক এ ক্লিক করুন, YouTube থেকে দেখতে পাবেন।"
