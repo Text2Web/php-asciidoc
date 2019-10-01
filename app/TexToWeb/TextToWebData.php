@@ -13,5 +13,9 @@ class TextToWebData
 {
 
     public $descriptor;
+    public $layout;
+    public $urlKey;
+    public $url;
+    public $topicNav = [];
 
 }

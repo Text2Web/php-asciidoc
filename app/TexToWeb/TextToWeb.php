@@ -18,9 +18,13 @@ use Twig\Loader\FilesystemLoader;
 
 class TextToWeb
 {
+    private $title = "..:: Bismillah ::..";
 
-    public function getDescriptor($url){
-        echo "<pre>";
+    private function urlToUrlKey($url){
+        return str_replace("/", "_" , $url);
+    }
+
+    public function getTextToWebData($url){
         $url = rtrim($url,'/');
         $urlFragments = empty($url)? array() : explode("/", $url);
         $config = Config::getConfig();
@@ -39,24 +43,97 @@ class TextToWeb
             }
         }
         $textToWebData->descriptor = $fileAndDirectoryService->getJsonFromFile($config->docRoot . DS . $descriptorJson);
+        $textToWebData->urlKey = $this->urlToUrlKey($url);
+        $textToWebData->url= $url;
+        $textToWebData->topicNav= $this->getNavigation($textToWebData->descriptor);
         return $textToWebData;
     }
 
+    public function getNavigation($descriptor){
+        $topicNav = [];
+        if (isset($descriptor->topics) && is_array($descriptor->topics)){
+            $itemIndex = 1;
+            $navIndex = 1;
+            foreach ($descriptor->topics as $topic){
+                $ttwNav = new TTWNav();
+                $navKey = "";
+                if (isset($topic->seo->title)){
+                    $ttwNav->title = $topic->seo->title;
+                }else if (isset($topic->name)){
+                   $ttwNav->title = $topic->name;
+                }else{
+                    $ttwNav->title = $this->title;
+                }
+
+                if (isset($topic->url)){
+                    $ttwNav->url = $topic->url;
+                    $navKey = $this->urlToUrlKey($topic->url);
+                }else{
+                    $ttwNav->url = "#";
+                    $navKey = "#-" . $navIndex;
+                    $navIndex++;
+                }
+
+                if (isset($topic->name)){
+                    $ttwNav->name = $topic->name;
+                }else{
+                    $ttwNav->name = "Nav Item " . $itemIndex;
+                    $itemIndex++;
+                }
+
+                if (isset($topic->seo)){
+                    $ttwNav->seo = $topic->seo;
+                }
+                $topicNav[$navKey] = $ttwNav;
+            }
+        }
+        return $topicNav;
+    }
+
+
+    public function setupView($textToWebData){
+        $descriptor = $textToWebData->descriptor;
+        if (isset($descriptor->layout->type)){
+            $textToWebData->layout = $descriptor->layout->type . ".html";
+        }else{
+            $textToWebData->layout = "404.html";
+        }
+        return $textToWebData;
+    }
+
+
+    public function getPageTitle($textToWebData){
+        $title = $this->title;
+        if (isset($textToWebData->topicNav[$textToWebData->urlKey]->title)){
+            $title = $textToWebData->topicNav[$textToWebData->urlKey]->title;
+        }elseif (isset($textToWebData->descriptor->defaultTitle)){
+            $title = $textToWebData->descriptor->defaultTitle;
+        }
+        return $title;
+    }
+
+
+
+    public function getPageData($textToWebData){
+        $textToWebPageData = new TextToWebPageData();
+        $textToWebPageData->title = $this->getPageTitle($textToWebData);
+        return $textToWebPageData;
+    }
+
     public function getPage($url){
+        echo "<pre>";
         $twigLoader = new FilesystemLoader(PathResolver::getThemeDir());
         $twig = new Environment($twigLoader, [
             'cache' => PathResolver::getThemeCacheDir(),
         ]);
+        $textToWebData = $this->getTextToWebData($url);
+        $textToWebData = $this->setupView($textToWebData);
 
-//        print_r($this->getDescriptor($url));
+        print_r($textToWebData);
 
-        $fileAndDirectoryService = new FileAndDirectoryService();
-        $layoutPath = PathResolver::getLandingLayout();
-        $layout = $fileAndDirectoryService->read($layoutPath);
-        $descriptor = '';
-        $page = '';
         try {
-            return $twig->render('landing.html', ['text' => 'Bismillah']);
+            $pageData = $this->getPageData($textToWebData);
+            return $twig->render($textToWebData->layout, ['page' => $pageData]);
         } catch (LoaderError $e) {
             return "404";
         } catch (RuntimeError $e) {
@@ -64,6 +141,7 @@ class TextToWeb
         } catch (SyntaxError $e) {
             return "404";
         };
+//        echo "</pre>";
     }
 
 }

@@ -1,48 +1,144 @@
 {
-  "topics": [
-    {
-      "name": "Root",
-      "block": "",
-      "id": "",
-      "icon": "",
-      "videoLink": "",
-      "videoPlayer": "YouTube | vimeo | html5",
-      "description": "",
-      "summery": "",
-      "url": "/java/basic/bismillah",
-      "filePath": "",
-      "parentId": ""
-    }
-  ],
   "layout": {
-    "type": "",
-    "seo": {
-      "title": "",
-      "script": [
-        "js codes here",
-        "second js codes"
-      ],
+    "type": "landing"
+  },
+  "defaultTitle": "..:: HMTMCSE ::..",
+  "settings": {
+    "defaultSeo": {
+      "title": "..:: HMTMCSE ::..",
       "tags": [
         {
-          "placedIn": "head / body",
-          "tag": {
-            "name": "",
-            "content": "",
-            "attrs": [
-              {
-                "name": "description",
-                "content": "something"
+          "placedIn": "head",
+          "tag": [
+            {
+              "name": "meta",
+              "attrs": {
+                "href": "#",
+                "rel": "canonical"
               }
-            ]
-          }
+            }
+          ]
         }
       ]
+    },
+    "fbComments": false,
+    "linkedInShare": false,
+    "fbShare": false
+  },
+  "topics": [
+    {
+      "name": "Bismillah",
+      "url": "/java/bismillah",
+      "seo": {
+        "title": "Bismillah"
+      }
+    },
+    {
+      "name": "Environment Setup",
+      "url": "/java/environment-Setup"
+    },
+    {
+      "name": "Input Output",
+      "url": "/java/input-output"
+    }
+  ],
+  "blocks": {
+    "SQUIRE_BLOCK": {
+      "title": "Squire Block",
+      "url": "#",
+      "childs": [
+        {
+          "name": "Video Tutorial",
+          "url": "#",
+          "icon": "fas fa-desktop fa-2x",
+          "videoPlayer": "youtube",
+          "summery": "Please Follow this link for see all video tutorial from YouTube. Here your will get lots of tutorial."
+        },
+        {
+          "name": "বাংলা টিউটোরিয়াল",
+          "url": "#",
+          "icon": "fas fa-file fa-2x",
+          "videoPlayer": "youtube",
+          "summery": "সাইটের সব বাংলা টিউটোরিয়াল  দেখতে এই লিংক এ ক্লিক করুন, YouTube থেকে দেখতে পাবেন।"
+        }
+      ]
+    },
+    "LIST_BLOCK": {
+      "title": "List Block",
+      "url": "#",
+      "blocks": {
+        "popularTutorials": {
+          "title": "Popular Tutorials",
+          "url": "#",
+          "childs": [
+            {
+              "name": "Java Basic",
+              "url": "#",
+              "videoPlayer": "youtube"
+            },
+            {
+              "name": "Java Advanced",
+              "url": "#",
+              "videoPlayer": "youtube"
+            },
+            {
+              "name": "Java Certifications",
+              "url": "#",
+              "videoPlayer": "youtube"
+            }
+          ]
+        },
+        "upcomingTutorials": {
+          "title": "Upcoming Tutorials",
+          "url": "#",
+          "childs": [
+            {
+              "name": "Python Basic",
+              "url": "#",
+              "videoPlayer": "youtube"
+            },
+            {
+              "name": "React JS",
+              "url": "#",
+              "videoPlayer": "youtube"
+            },
+            {
+              "name": "PHP Laravel",
+              "url": "#",
+              "videoPlayer": "youtube"
+            }
+          ]
+        },
+        "recentUploadedTutorial": {
+          "title": "Recent Uploaded Tutorial",
+          "url": "#",
+          "childs": [
+            {
+              "name": "Java Basic",
+              "url": "#",
+              "videoPlayer": "youtube"
+            },
+            {
+              "name": "Java Advanced",
+              "url": "#",
+              "videoPlayer": "youtube"
+            },
+            {
+              "name": "Java Certifications",
+              "url": "#",
+              "videoPlayer": "youtube"
+            }
+          ]
+        }
+      }
     }
   },
-  "settings": {
-    "defaultSeo": null,
-    "fbComments": false,
-    "fbShare": false,
-    "linkedInShare": false
+  "findReplace": {
+    "FACEBOOK_PAGE": "https://www.facebook.com/hmtmcsecom",
+    "GITHUB_PAGE": "https://github.com/hmtmcse-com",
+    "YOUTUBE_PAGE": "https://www.youtube.com/hmtmcse",
+    "PRIVACY": "/static-page/privacy",
+    "TERMS_AND_CONDITION": "/static-page/terms-and-condition",
+    "ABOUT": "/static-page/about"
   }
 }
