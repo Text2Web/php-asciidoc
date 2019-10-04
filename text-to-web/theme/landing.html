@@ -75,39 +75,17 @@
                     <h2 class="text-center card-title">Tutorials</h2>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4 col-space-tb">
-                                <h5 class="">Popular Tutorials</h5>
-                                <ul class="list-style-arrow">
-                                    <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
-                                    <li><a href="#">Mauris facilisis dui ut justo.</a></li>
-                                    <li><a href="#">Nunc aliquet arcu et loborti.</a></li>
-                                    <li><a href="#">Mauris eget sapien sit ame.</a></li>
-                                    <li><a href="#">Phasellus ac urna vitae.</a></li>
-                                    <li><a href="#">Cras rutrum sem sed enim viverra.</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 col-space-tb">
-                                <h5 class="">Recent Uploaded Tutorial</h5>
-                                <ul class="list-style-arrow">
-                                    <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
-                                    <li><a href="#">Mauris facilisis dui ut justo.</a></li>
-                                    <li><a href="#">Nunc aliquet arcu et loborti.</a></li>
-                                    <li><a href="#">Mauris eget sapien sit ame.</a></li>
-                                    <li><a href="#">Phasellus ac urna vitae.</a></li>
-                                    <li><a href="#">Cras rutrum sem sed enim viverra.</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 col-space-tb">
-                                <h5 class="">Upcoming Tutorials</h5>
-                                <ul class="list-style-arrow">
-                                    <li><a href="#">Lorem ipsum dolor sit amet.</a></li>
-                                    <li><a href="#">Mauris facilisis dui ut justo.</a></li>
-                                    <li><a href="#">Nunc aliquet arcu et loborti.</a></li>
-                                    <li><a href="#">Mauris eget sapien sit ame.</a></li>
-                                    <li><a href="#">Phasellus ac urna vitae.</a></li>
-                                    <li><a href="#">Cras rutrum sem sed enim viverra.</a></li>
-                                </ul>
-                            </div>
+
+                            {% for key, listBlock in page.blocks.LIST_BLOCK.childs %}
+                                <div class="col-md-4 col-space-tb">
+                                    <h5 class="">{{ listBlock.name }}</h5>
+                                    <ul class="list-style-arrow">
+                                    {% for topic in listBlock.childs %}
+                                        <li><a href="{{topic.url}}">{{topic.name}}</a></li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

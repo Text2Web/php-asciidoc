@@ -54,21 +54,19 @@
   ],
   "blocks": {
     "SQUIRE_BLOCK": {
-      "title": "Squire Block",
+      "title": "Thumb Block",
       "url": "#",
       "childs": [
         {
           "name": "Video Tutorial",
-          "url": "/java/",
+          "url": "/java",
           "icon": "fas fa-desktop fa-2x",
-          "videoPlayer": "youtube",
           "summery": "Please Follow this link for see all video tutorial from YouTube. Here your will get lots of tutorial."
         },
         {
           "name": "বাংলা টিউটোরিয়াল",
-          "url": "/java/basic/",
+          "url": "/java/basic",
           "icon": "fas fa-file fa-2x",
-          "videoPlayer": "youtube",
           "summery": "সাইটের সব বাংলা টিউটোরিয়াল  দেখতে এই লিংক এ ক্লিক করুন, YouTube থেকে দেখতে পাবেন।"
         }
       ]
@@ -76,71 +74,62 @@
     "LIST_BLOCK": {
       "title": "List Block",
       "url": "#",
-      "blocks": {
-        "popularTutorials": {
-          "title": "Popular Tutorials",
+      "childs": [
+        {
+          "name": "Popular Tutorials",
           "url": "#",
           "childs": [
             {
               "name": "Java Basic",
-              "url": "#",
-              "videoPlayer": "youtube"
+              "url": "#"
             },
             {
               "name": "Java Advanced",
-              "url": "#",
-              "videoPlayer": "youtube"
+              "url": "#"
             },
             {
               "name": "Java Certifications",
-              "url": "#",
-              "videoPlayer": "youtube"
+              "url": "#"
             }
           ]
         },
-        "upcomingTutorials": {
-          "title": "Upcoming Tutorials",
+        {
+          "name": "Upcoming Tutorials",
           "url": "#",
           "childs": [
             {
               "name": "Python Basic",
-              "url": "#",
-              "videoPlayer": "youtube"
+              "url": "#"
             },
             {
               "name": "React JS",
-              "url": "#",
-              "videoPlayer": "youtube"
+              "url": "#"
             },
             {
               "name": "PHP Laravel",
-              "url": "#",
-              "videoPlayer": "youtube"
+              "url": "#"
             }
           ]
         },
-        "recentUploadedTutorial": {
-          "title": "Recent Uploaded Tutorial",
+        {
+          "name": "Recent Uploaded Tutorial",
           "url": "#",
           "childs": [
             {
               "name": "Java Basic",
-              "url": "#",
-              "videoPlayer": "youtube"
+              "url": "#"
             },
             {
               "name": "Java Advanced",
-              "url": "#",
-              "videoPlayer": "youtube"
+              "url": "#"
             },
             {
               "name": "Java Certifications",
-              "url": "#",
-              "videoPlayer": "youtube"
+              "url": "#"
             }
           ]
         }
-      }
+      ]
     }
   },
   "findReplace": {

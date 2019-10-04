@@ -160,7 +160,8 @@ class TextToWeb
     public function getPage($url){
         $twigLoader = new FilesystemLoader(PathResolver::getThemeDir());
         $twig = new Environment($twigLoader, [
-            'cache' => PathResolver::getThemeCacheDir(),
+//            'cache' => PathResolver::getThemeCacheDir(),
+            'cache' => false,
         ]);
         $textToWebData = $this->getTextToWebData($url);
         $textToWebData = $this->setupView($textToWebData);
