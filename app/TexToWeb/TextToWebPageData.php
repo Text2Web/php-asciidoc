@@ -15,4 +15,5 @@ class TextToWebPageData
     public $content = "";
     public $nav = [];
     public $blocks = [];
+    public $topics = [];
 }

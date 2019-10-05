@@ -1,8 +1,8 @@
 {
   "layout": {
-    "type": "outline"
+    "type": "topics"
   },
-  "defaultTitle": "..:: Java ::..",
+  "defaultTitle": "..:: Topics ::..",
   "settings": {
     "defaultSeo": {
       "title": "..:: HMTMCSE ::..",
@@ -27,122 +27,21 @@
   },
   "topics": [
     {
-      "name": "Bismillah",
+      "name": "Topics",
       "url": "/java",
-      "seo": {
-        "title": "Java"
-      }
+      "summery": "Basic About Java Tutorial. You can get Many details here"
     },
     {
       "name": "Environment Setup",
       "url": "/java/basic",
-      "childs": [
-        {
-          "name": "JDK Setup",
-          "url": "/java/environment-Setup/jdk-setup"
-        },
-        {
-          "name": "IDE Setup",
-          "url": "/java/environment-Setup/ide-setup"
-        }
-      ]
+      "summery": "Basic About Java Tutorial. You can get Many details here"
     },
     {
       "name": "Input Output",
-      "url": "/java/input-output"
+      "url": "/java/input-output",
+      "summery": "Basic About Java Tutorial. You can get Many details here"
     }
   ],
-  "blocks": {
-    "SQUIRE_BLOCK": {
-      "title": "Squire Block",
-      "url": "#",
-      "childs": [
-        {
-          "name": "Video Tutorial",
-          "url": "/java",
-          "icon": "fas fa-desktop fa-2x",
-          "videoPlayer": "youtube",
-          "summery": "Please Follow this link for see all video tutorial from YouTube. Here your will get lots of tutorial."
-        },
-        {
-          "name": "বাংলা টিউটোরিয়াল",
-          "url": "/java/basic",
-          "icon": "fas fa-file fa-2x",
-          "videoPlayer": "youtube",
-          "summery": "সাইটের সব বাংলা টিউটোরিয়াল  দেখতে এই লিংক এ ক্লিক করুন, YouTube থেকে দেখতে পাবেন।"
-        }
-      ]
-    },
-    "LIST_BLOCK": {
-      "title": "List Block",
-      "url": "#",
-      "blocks": {
-        "popularTutorials": {
-          "title": "Popular Tutorials",
-          "url": "#",
-          "childs": [
-            {
-              "name": "Java Basic",
-              "url": "#",
-              "videoPlayer": "youtube"
-            },
-            {
-              "name": "Java Advanced",
-              "url": "#",
-              "videoPlayer": "youtube"
-            },
-            {
-              "name": "Java Certifications",
-              "url": "#",
-              "videoPlayer": "youtube"
-            }
-          ]
-        },
-        "upcomingTutorials": {
-          "title": "Upcoming Tutorials",
-          "url": "#",
-          "childs": [
-            {
-              "name": "Python Basic",
-              "url": "#",
-              "videoPlayer": "youtube"
-            },
-            {
-              "name": "React JS",
-              "url": "#",
-              "videoPlayer": "youtube"
-            },
-            {
-              "name": "PHP Laravel",
-              "url": "#",
-              "videoPlayer": "youtube"
-            }
-          ]
-        },
-        "recentUploadedTutorial": {
-          "title": "Recent Uploaded Tutorial",
-          "url": "#",
-          "childs": [
-            {
-              "name": "Java Basic",
-              "url": "#",
-              "videoPlayer": "youtube"
-            },
-            {
-              "name": "Java Advanced",
-              "url": "#",
-              "videoPlayer": "youtube"
-            },
-            {
-              "name": "Java Certifications",
-              "url": "#",
-              "videoPlayer": "youtube"
-            }
-          ]
-        }
-      }
-    }
-  },
   "findReplace": {
     "FACEBOOK_PAGE": "https://www.facebook.com/hmtmcsecom",
     "GITHUB_PAGE": "https://github.com/hmtmcse-com",

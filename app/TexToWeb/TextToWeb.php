@@ -154,6 +154,9 @@ class TextToWeb
         if (isset($textToWebData->descriptor->blocks)) {
             $textToWebPageData->blocks = $textToWebData->descriptor->blocks;
         }
+        if (isset($textToWebData->descriptor->topics)) {
+            $textToWebPageData->topics = $textToWebData->descriptor->topics;
+        }
         return $textToWebPageData;
     }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tutorial Page</title>
+    <title>{{page.title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/asset/css/bootstrap.min.css">
     <link rel="stylesheet" href="/asset/font-awesome/css/font-awesome.min.css">
@@ -76,59 +76,22 @@
         </div>
 
         <main class="col-12 col-md-9 col-xl-10 py-md-3 pl-md-5 bd-content" role="main">
-
-            <nav class="navbar search-video d-flex justify-content-center">
-                <form class="search-form">
-                    <input type="search" class="form-control" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
-                </form>
-            </nav>
-
-            <div class="col inner-content">
-
-                <h3 class="underline-header">Spring Boot - Basics</h3>
-                <ul class="out-line-list pb-x">
-                    <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                    <li><a href="#">Aenean tempor neque ut quam eleifend, eu tempor augue vehicula.</a></li>
-                    <li><a href="#">Donec luctus erat eu malesuada aliquet.</a></li>
-                    <li><a href="#">Maecenas pharetra lectus ultricies lectus faucibus, sed tempor turpis sodales.</a></li>
-                    <li><a href="#">Nullam varius magna vitae ante hendrerit, quis scelerisque purus finibus.</a></li>
-                    <li><a href="#">Etiam et nisi sit amet ipsum vestibulum dignissim aliquet eget mauris.</a></li>
-                    <li><a href="#">Duis pharetra ipsum id sapien rhoncus, et condimentum lacus pretium.</a></li>
-                    <li><a href="#">Sed dignissim ante bibendum rutrum rhoncus.</a></li>
-                    <li><a href="#">Ut ullamcorper tortor eleifend, luctus leo a, ullamcorper eros.</a></li>
-                    <li><a href="#">Integer eget nisl cursus, malesuada quam quis, vulputate lectus.</a></li>
-                    <li><a href="#">Etiam laoreet orci ut odio hendrerit condimentum.</a></li>
-                </ul>
-
-                <h3 class="underline-header">Spring Boot - Basics</h3>
-                <ul class="out-line-list pb-x">
-                    <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                    <li><a href="#">Aenean tempor neque ut quam eleifend, eu tempor augue vehicula.</a></li>
-                    <li><a href="#">Donec luctus erat eu malesuada aliquet.</a></li>
-                    <li><a href="#">Maecenas pharetra lectus ultricies lectus faucibus, sed tempor turpis sodales.</a></li>
-                    <li><a href="#">Nullam varius magna vitae ante hendrerit, quis scelerisque purus finibus.</a></li>
-                    <li><a href="#">Etiam et nisi sit amet ipsum vestibulum dignissim aliquet eget mauris.</a></li>
-                    <li><a href="#">Duis pharetra ipsum id sapien rhoncus, et condimentum lacus pretium.</a></li>
-                    <li><a href="#">Sed dignissim ante bibendum rutrum rhoncus.</a></li>
-                    <li><a href="#">Ut ullamcorper tortor eleifend, luctus leo a, ullamcorper eros.</a></li>
-                    <li><a href="#">Integer eget nisl cursus, malesuada quam quis, vulputate lectus.</a></li>
-                    <li><a href="#">Etiam laoreet orci ut odio hendrerit condimentum.</a></li>
-                </ul>
-
-                <h3 class="underline-header">Spring Boot - Basics</h3>
-                <ul class="out-line-list pb-x">
-                    <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                    <li><a href="#">Aenean tempor neque ut quam eleifend, eu tempor augue vehicula.</a></li>
-                    <li><a href="#">Donec luctus erat eu malesuada aliquet.</a></li>
-                    <li><a href="#">Maecenas pharetra lectus ultricies lectus faucibus, sed tempor turpis sodales.</a></li>
-                    <li><a href="#">Nullam varius magna vitae ante hendrerit, quis scelerisque purus finibus.</a></li>
-                    <li><a href="#">Etiam et nisi sit amet ipsum vestibulum dignissim aliquet eget mauris.</a></li>
-                    <li><a href="#">Duis pharetra ipsum id sapien rhoncus, et condimentum lacus pretium.</a></li>
-                    <li><a href="#">Sed dignissim ante bibendum rutrum rhoncus.</a></li>
-                    <li><a href="#">Ut ullamcorper tortor eleifend, luctus leo a, ullamcorper eros.</a></li>
-                    <li><a href="#">Integer eget nisl cursus, malesuada quam quis, vulputate lectus.</a></li>
-                    <li><a href="#">Etiam laoreet orci ut odio hendrerit condimentum.</a></li>
-                </ul>
+            <div class="row">
+                {% for topic in page.topics %}
+                    <div class="col-2" >
+                        <a href="{{topic.url}}">
+                            <div class="card">
+                                <img src="/asset/images/default_thumbs.jpg" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{topic.name}}</h5>
+                                    <p class="card-text">
+                                        {{topic.summery}}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
         </main>
     </div>

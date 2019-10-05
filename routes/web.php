@@ -12,17 +12,6 @@
 */
 
 
+$router->get('/resource/download/{all:.*}', 'ResourceController@download');
+$router->get('/resource/{all:.*}', 'ResourceController@index');
 $router->get('/{all:.*}', 'SiteController@index');
-
-//$router->get('bismillah/{urltitle}', function () {
-//    return 'Bismillah';
-//});
-//
-//$router->get('my-url/{urltitle}', function () {
-//    return 'My URL';
-//});
-//
-
-//$router->get('/{all:.*}', function ($any) use ($app) {
-//    return 'My URL ';
-//});

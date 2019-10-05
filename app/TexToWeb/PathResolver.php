@@ -23,6 +23,7 @@ class PathResolver
     public static $VIDEO = "video";
     public static $TOPICS = "topics";
     public static $CONFIG_FILE = "config.json";
+    public static $HTML_CONTENT = "html-content";
 
 
     public static function getAppRoot()
@@ -80,6 +81,26 @@ class PathResolver
     public static function getLayout($layoutName)
     {
         return self::getThemeDir() . $layoutName . ".html";
+    }
+
+    public static function getPublicDir()
+    {
+        return self::getAppRoot() . DS . "public";
+    }
+
+    public static function getDefaultThumbs()
+    {
+        return self::getPublicDir() . DS . "asset" . DS . "images" . DS . "default_thumbs.jpg";
+    }
+
+    public static function getHtmlContent()
+    {
+        return self::getTextToWebRoot() . DS . "html-content" . DS;
+    }
+
+    public static function getHtmlContentAssets($path)
+    {
+        return self::getHtmlContent() . "resource" . DS . $path;
     }
 
 
