@@ -12,7 +12,7 @@ namespace App\TexToWeb;
 class TextToWebPageData
 {
     public $title = "";
-    public $content = "";
+    public $content = "<h1>Coming Soon....</h1>";
     public $layout = "404";
     public $nav = [];
     public $blocks = [];

@@ -1,0 +1,30 @@
+{
+  "layout": {
+    "type": "details"
+  },
+  "defaultTitle": "..:: Java Basic ::..",
+  "topics": [
+    {
+      "name": "Bismillah Grails",
+      "url": "/java/grails/",
+      "filePath": "/java/grails/",
+      "seo": {
+        "title": "Grails Tutorial"
+      }
+    },
+    {
+      "name": "Environment Setup",
+      "url": "/java/grails/environment-setup",
+      "childs": [
+        {
+          "name": "Create Grails Project",
+          "url": "/java/grails/create-grails-project"
+        }
+      ]
+    },
+    {
+      "name": "Controller",
+      "url": "/java/grails/controller"
+    }
+  ]
+}

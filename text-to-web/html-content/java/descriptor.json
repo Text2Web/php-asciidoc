@@ -27,13 +27,13 @@
   },
   "topics": [
     {
-      "name": "Topics",
-      "url": "/java",
+      "name": "Java Basic",
+      "url": "/java/basic",
       "summery": "Basic About Java Tutorial. You can get Many details here"
     },
     {
-      "name": "Environment Setup",
-      "url": "/java/basic",
+      "name": "Grails Tutorial",
+      "url": "/java/grails",
       "summery": "Basic About Java Tutorial. You can get Many details here"
     },
     {
