@@ -7,7 +7,7 @@
     {
       "name": "Bismillah Grails",
       "url": "/java/grails/",
-      "filePath": "/java/grails/",
+      "filePath": "java/grails/grails.html",
       "seo": {
         "title": "Grails Tutorial"
       }
@@ -24,7 +24,7 @@
     },
     {
       "name": "Controller",
-      "url": "/java/grails/controller"
+      "url": "/java/grails/file-only"
     }
   ]
 }

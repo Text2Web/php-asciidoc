@@ -40,6 +40,8 @@ class TextToWeb
 
         $textToWebData = $this->getDescriptorData($url, $config, $descriptorFile);
         $textToWebData->urlKey = $this->urlToUrlKey($textToWebData->url);
+        $textToWebData->absolutePath = $path;
+        $textToWebData->docRoot = $config->docRoot;
 
         $navigation = $textToWebData->descriptor;
         if ($isOutline){
@@ -132,6 +134,11 @@ class TextToWeb
                 if (isset($topic->seo)){
                     $ttwNav->seo = $topic->seo;
                 }
+
+                if (isset($topic->filePath)){
+                    $ttwNav->filePath = $topic->filePath;
+                }
+
                 $topicNav->nav[$navKey] = $ttwNav;
                 $topicNav->meta[$navKey] = $ttwNav;
 
@@ -173,6 +180,26 @@ class TextToWeb
 
 
 
+    public function getPageContent($textToWebData){
+        $content = "<h1>Coming Soon.....</h1>";
+        if (isset($textToWebData->urlKey) && isset($textToWebData->topicNav->meta[$textToWebData->urlKey])){
+            $nav = $textToWebData->topicNav->meta[$textToWebData->urlKey];
+            if (isset($nav->filePath)){
+               $path = $textToWebData->docRoot . DS . $this->urlToDir($nav->filePath);
+            }else{
+                $path = $textToWebData->absolutePath . ".html";
+            }
+            if ($path !== null){
+                $fileAndDirectoryService = new FileAndDirectoryService();
+                $data = $fileAndDirectoryService->read($path);
+                if ($data !== null){
+                    return $data;
+                }
+            }
+        }
+        return $content;
+    }
+
     public function getPageData($textToWebData){
         $textToWebPageData = new TextToWebPageData();
         $textToWebPageData->title = $this->getPageTitle($textToWebData);
@@ -189,7 +216,7 @@ class TextToWeb
         if (isset($textToWebData->layout)) {
             $textToWebPageData->layout = $textToWebData->layout;
         }
-
+        $textToWebPageData->content = $this->getPageContent($textToWebData);
         return $textToWebPageData;
     }
 

@@ -16,6 +16,7 @@ class TTWNav
     public $title;
     public $url;
     public $seo;
+    public $filePath = null;
     public $childs = [];
 
 }
