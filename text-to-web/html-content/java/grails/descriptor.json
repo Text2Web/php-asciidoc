@@ -25,6 +25,10 @@
     {
       "name": "Controller",
       "url": "/java/grails/file-only"
+    },
+    {
+      "name": "Java Basic",
+      "url": "/java/basic"
     }
   ]
 }

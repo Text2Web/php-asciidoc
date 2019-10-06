@@ -10,6 +10,7 @@ namespace App\TexToWeb;
 
 
 
+use App\TexToWeb\TwigTag\Bootstrap;
 use stdClass;
 use Twig\Environment;
 use Twig\Error\LoaderError;
@@ -226,6 +227,7 @@ class TextToWeb
 //            'cache' => PathResolver::getThemeCacheDir(),
             'cache' => false,
         ]);
+        $twig->addGlobal('bootstrap', new Bootstrap());
         $textToWebData = $this->getTextToWebData($url);
         $textToWebData = $this->setupView($textToWebData);
 
