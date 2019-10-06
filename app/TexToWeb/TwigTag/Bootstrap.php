@@ -12,8 +12,20 @@ namespace App\TexToWeb\TwigTag;
 class Bootstrap
 {
 
-    public function generateLeftNav($nav){
-        return "<li class=''><a href='#'>Ki koris</a></li>";
+    private function getLetNavHtml($navs)
+    {
+        $html = "";
+        if (is_array($navs)){
+            foreach ($navs as $data) {
+                $html .= "<li class=''><a href='#'>" . $data->name . "</a></li>";
+            }
+        }
+        return $html;
+    }
+
+    public function generateLeftNav($nav)
+    {
+        return $this->getLetNavHtml($nav);
     }
 
 }
