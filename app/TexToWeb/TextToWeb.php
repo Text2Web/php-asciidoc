@@ -27,9 +27,33 @@ class TextToWeb
 
     public function getTextToWebData($url){
         $config = Config::getConfig();
-        $textToWebData = $this->getDescriptorData($url, $config);
+        $url = $this->urlTrim($url);
+        $path = $config->docRoot . DS . $this->urlToDir($url);
+
+        $isOutline = false;
+        $descriptorFile = "outline.json";
+        if (FileAndDirectoryService::isDirectory($path) && FileAndDirectoryService::isFile($path . DS . $descriptorFile)){
+            $isOutline = true;
+        }else{
+            $descriptorFile = "descriptor.json";
+        }
+
+        $textToWebData = $this->getDescriptorData($url, $config, $descriptorFile);
         $textToWebData->urlKey = $this->urlToUrlKey($textToWebData->url);
-        $textToWebData->topicNav = $this->getNavigation($textToWebData->descriptor);
+
+        $navigation = $textToWebData->descriptor;
+        if ($isOutline){
+            if (isset($textToWebData->descriptor->relatedTopics)){
+                $navigation = new stdClass();
+                $navigation->topics = $textToWebData->descriptor->relatedTopics;
+            }else{
+                $navigation = null;
+            }
+        }
+
+
+
+        $textToWebData->topicNav = $this->getNavigation($navigation);
         return $textToWebData;
     }
 
@@ -46,15 +70,19 @@ class TextToWeb
         return substr($url, 0, 1) === "/" ? substr($url, 1, strlen($url)) : $url;
     }
 
-    public function getDescriptorData($url, $config){
-        $url = $this->urlTrim($url);
+    public function urlToDir($url){
+        return str_replace("/", DS, $url);
+    }
+
+    public function getDescriptorData($url, $config, $descriptorFile){
         $urlFragments = empty($url) ? array() : explode("/", $url);
         $textToWebData = new TextToWebData();
         $fileAndDirectoryService = new FileAndDirectoryService();
-        $urlToDir = str_replace("/", DS, $url);
+        $urlToDir = $this->urlToDir($url);
         $urlFragments = array_reverse($urlFragments);
-        $descriptorJson = "descriptor.json";
+        $descriptorJson = $descriptorFile;
         $textToWebData->url = $url;
+        $textToWebData->relativePath = $urlToDir;
         foreach ($urlFragments as $segment) {
             $path = $config->docRoot . DS . $urlToDir . DS . $descriptorJson;
             if (FileAndDirectoryService::isFile($path)) {
@@ -157,6 +185,11 @@ class TextToWeb
         if (isset($textToWebData->descriptor->topics)) {
             $textToWebPageData->topics = $textToWebData->descriptor->topics;
         }
+
+        if (isset($textToWebData->layout)) {
+            $textToWebPageData->layout = $textToWebData->layout;
+        }
+
         return $textToWebPageData;
     }
 
@@ -179,7 +212,7 @@ class TextToWeb
 //            print_r($pageData);
 //            print_r($textToWebData);
 
-            return $twig->render($textToWebData->layout, ['page' => $pageData]);
+            return $twig->render($pageData->layout, ['page' => $pageData]);
         } catch (LoaderError $e) {
             return $e->getMessage();
         } catch (RuntimeError $e) {

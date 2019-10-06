@@ -1,0 +1,102 @@
+{
+  "layout": {
+    "type": "outline"
+  },
+  "defaultTitle": "..:: Outline ::..",
+  "topics": [
+    {
+      "name": "Java Basic",
+      "url": "#",
+      "childs": [
+        {
+          "name": "Overview",
+          "url": "#"
+        },
+        {
+          "name": "Main Method",
+          "url": "#"
+        },
+        {
+          "name": "Input Out",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "name": "Java Class",
+      "url": "#",
+      "childs": [
+        {
+          "name": "Properties",
+          "url": "#"
+        },
+        {
+          "name": "Method",
+          "url": "#"
+        },
+        {
+          "name": "Method Overloading",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "name": "Java Advance",
+      "url": "#",
+      "childs": [
+        {
+          "name": "Generics",
+          "url": "#"
+        },
+        {
+          "name": "Collections",
+          "url": "#"
+        },
+        {
+          "name": "Thread",
+          "url": "#"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "defaultSeo": {
+      "title": "..:: Outline ::..",
+      "tags": [
+        {
+          "placedIn": "head",
+          "tag": [
+            {
+              "name": "meta",
+              "attrs": {
+                "rel": "canonical",
+                "href": "#"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "fbComments": false,
+    "linkedInShare": false,
+    "fbShare": false
+  },
+  "relatedTopics": [
+    {
+      "name": "Spring Boot",
+      "url": "#"
+    },
+    {
+      "name": "Groovy",
+      "url": "#"
+    },
+    {
+      "name": "Grails 4",
+      "url": "#"
+    },
+    {
+      "name": "Java FX",
+      "url": "#"
+    }
+  ]
+}

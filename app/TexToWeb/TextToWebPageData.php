@@ -13,6 +13,7 @@ class TextToWebPageData
 {
     public $title = "";
     public $content = "";
+    public $layout = "404";
     public $nav = [];
     public $blocks = [];
     public $topics = [];

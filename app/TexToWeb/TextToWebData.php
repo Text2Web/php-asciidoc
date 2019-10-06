@@ -16,6 +16,7 @@ class TextToWebData
     public $layout;
     public $urlKey;
     public $url;
+    public $relativePath;
     public $topicNav = [];
 
 }
