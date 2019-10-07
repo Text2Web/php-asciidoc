@@ -1,35 +1,7 @@
 <nav class="collapse bd-links left-navigation" id="bd-docs-nav">
     <div class="bd-toc-item">
         <ul class="nav bd-sidenav ">
-
-            {% for nav in navs %}
-            <li class="">
-                <a href="{{nav.url}}">{{nav.name}}</a>
-
-            </li>
-            <!--<ul class="out-line-list pb-x">-->
-                <!--{% for nested in navs.childs %}-->
-                <!--<li><a href="{{topic.url}}">{{topic.name}}</a></li>-->
-                <!--{% endfor %}-->
-            <!--</ul>-->
-            {% endfor %}
-
             {{bootstrap.generateLeftNav(navs) | raw}}
-
-            <li class=""><a href="#">Introduction</a></li>
-            <li><a href="#" data-toggle="collapse" data-target="#website-design">Java</a>
-                <ul id="website-design" class="collapse">
-                    <li><a href="#">Page 1</a></li>
-                    <li class=""><a href="#">Page 2</a></li>
-                    <li data-toggle="collapse" data-target="#website-design2"><a href="#">Page 3</a>
-                        <ul id="website-design2" class="collapse">
-                            <li class="active bd-sidenav-active"><a href="#">Page 1</a></li>
-                            <li class=""><a href="#">Page 2</a></li>
-                            <li class=""><a href="#">Page 3</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
         </ul>
     </div>
 </nav>

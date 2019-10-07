@@ -9,6 +9,8 @@
 namespace App\TexToWeb\TwigTag;
 
 
+use App\TexToWeb\TextToWebUtil;
+
 class Bootstrap
 {
 
@@ -17,7 +19,16 @@ class Bootstrap
         $html = "";
         if (is_array($navs)){
             foreach ($navs as $data) {
-                $html .= "<li class=''><a href='#'>" . $data->name . "</a></li>";
+                $liAttr = "";
+                $nestedNav = "";
+                if (isset($data->childs) && count($data->childs)){
+                    $nestedNav = "<ul>";
+                    $nestedNav .= $this->getLetNavHtml($data->childs);
+                    $nestedNav .= "</ul>";
+                }
+                $html .= "<li" . $liAttr . "><a href='" . $data->url . "'>" . $data->name . "</a>";
+                $html .= $nestedNav;
+                $html .= "</li>";
             }
         }
         return $html;
