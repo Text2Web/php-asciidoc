@@ -1,0 +1,22 @@
+
+. Home
+. Thumb
+.. Video Tutorial
+.. Bangla Tutorial
+. List
+.. Popular Tutorials
+.. Upcoming Tutorials
+.. Recent Uploaded Tutorial
+
+
+{blank} +
+
+. Landing : Hold only link
+. Topics: Hold Thumb nail of topic an summery
+.. Outline : Topic Out Line
+.. Video : Video List (Click on Video it will show in popup)
+. Details : Topic Details
+
+
+{blank} +
+

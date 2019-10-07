@@ -58,14 +58,14 @@
       "url": "#",
       "childs": [
         {
-          "name": "Video Tutorial",
+          "name": "Tutorial",
           "url": "/java",
           "icon": "fas fa-desktop fa-2x",
           "summery": "Please Follow this link for see all video tutorial from YouTube. Here your will get lots of tutorial."
         },
         {
           "name": "বাংলা টিউটোরিয়াল",
-          "url": "/java/basic",
+          "url": "/java-video",
           "icon": "fas fa-file fa-2x",
           "summery": "সাইটের সব বাংলা টিউটোরিয়াল  দেখতে এই লিংক এ ক্লিক করুন, YouTube থেকে দেখতে পাবেন।"
         }

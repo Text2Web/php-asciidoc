@@ -1,16 +1,16 @@
 {
   "layout": {
-    "type": "outline"
+    "type": "video"
   },
   "defaultTitle": "..:: Outline ::..",
   "topics": [
     {
-      "name": "Grails Basic",
+      "name": "Java Basic",
       "url": "#",
       "childs": [
         {
           "name": "Overview",
-          "url": "/java/grails"
+          "url": "#"
         },
         {
           "name": "Main Method",

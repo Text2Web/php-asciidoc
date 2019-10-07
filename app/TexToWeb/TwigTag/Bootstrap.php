@@ -25,7 +25,7 @@ class Bootstrap
                     $nestedNav .= $this->getLetNavHtml($data->childs);
                     $nestedNav .= "</ul>";
                 }
-                $html .= "<li class='" . $data->active . "'><a href='" . $data->url . "'>" . $data->name . "</a>";
+                $html .= "<li><a class='" . $data->active . "' href='" . $data->url . "'>" . $data->name . "</a>";
                 $html .= $nestedNav;
                 $html .= "</li>";
             }

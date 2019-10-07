@@ -27,33 +27,8 @@
   },
   "topics": [
     {
-      "name": "Java Basic",
-      "url": "/java/basic",
-      "summery": "Basic About Java Tutorial. You can get Many details here"
-    },
-    {
-      "name": "Java Basic",
-      "url": "/java/basic",
-      "summery": "Basic About Java Tutorial. You can get Many details here"
-    },
-    {
-      "name": "Java Basic",
-      "url": "/java/basic",
-      "summery": "Basic About Java Tutorial. You can get Many details here"
-    },
-    {
-      "name": "Java Basic",
-      "url": "/java/basic",
-      "summery": "Basic About Java Tutorial. You can get Many details here"
-    },
-    {
       "name": "Grails Tutorial",
-      "url": "/java/grails",
-      "summery": "Basic About Java Tutorial. You can get Many details here"
-    },
-    {
-      "name": "Input Output",
-      "url": "/java/input-output",
+      "url": "/java-video/grails",
       "summery": "Basic About Java Tutorial. You can get Many details here"
     }
   ],
