@@ -9,7 +9,6 @@
 namespace App\TexToWeb\TwigTag;
 
 
-use App\TexToWeb\TextToWebUtil;
 
 class Bootstrap
 {
@@ -26,7 +25,7 @@ class Bootstrap
                     $nestedNav .= $this->getLetNavHtml($data->childs);
                     $nestedNav .= "</ul>";
                 }
-                $html .= "<li" . $liAttr . "><a href='" . $data->url . "'>" . $data->name . "</a>";
+                $html .= "<li class='" . $data->active . "'><a href='" . $data->url . "'>" . $data->name . "</a>";
                 $html .= $nestedNav;
                 $html .= "</li>";
             }

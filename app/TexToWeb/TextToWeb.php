@@ -56,7 +56,7 @@ class TextToWeb
 
 
 
-        $textToWebData->topicNav = $this->getNavigation($navigation);
+        $textToWebData->topicNav = $this->getNavigation($navigation, $textToWebData->urlKey);
         return $textToWebData;
     }
 
@@ -99,7 +99,7 @@ class TextToWeb
         return $textToWebData;
     }
 
-    public function getNavigation($descriptor){
+    public function getNavigation($descriptor, $currentUrlKey){
         $topicNav = new TopicNav();
         if (isset($descriptor->topics) && is_array($descriptor->topics)){
             $itemIndex = 1;
@@ -140,13 +140,17 @@ class TextToWeb
                     $ttwNav->filePath = $topic->filePath;
                 }
 
+                if ($navKey === $currentUrlKey){
+                    $ttwNav->active = 'active';
+                }
+
                 $topicNav->nav[$navKey] = $ttwNav;
                 $topicNav->meta[$navKey] = $ttwNav;
 
                 if (isset($topic->childs) && is_array($topic->childs)){
                     $childTopic = new stdClass();
                     $childTopic->topics = $topic->childs;
-                    $childs = $this->getNavigation($childTopic);
+                    $childs = $this->getNavigation($childTopic, $currentUrlKey);
                     $topicNav->nav[$navKey]->childs = $childs->nav;
                     foreach ($childs->meta as $key => $child){
                         $topicNav->meta[$key] = $child;
