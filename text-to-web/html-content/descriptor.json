@@ -1,143 +1,457 @@
 {
-  "layout": {
-    "type": "landing"
+  "layout" : {
+    "type" : "landing"
   },
-  "defaultTitle": "..:: HMTMCSE ::..",
-  "settings": {
-    "defaultSeo": {
-      "title": "..:: HMTMCSE ::..",
-      "tags": [
-        {
-          "placedIn": "head",
-          "tag": [
-            {
-              "name": "meta",
-              "attrs": {
-                "href": "#",
-                "rel": "canonical"
-              }
-            }
-          ]
-        }
-      ]
+  "defaultTitle" : "..:: HMTMCSE ::..",
+  "settings" : {
+    "defaultSeo" : {
+      "title" : "..:: HMTMCSE ::..",
+      "tags" : [ {
+        "placedIn" : "head",
+        "tag" : [ {
+          "name" : "meta",
+          "attrs" : {
+            "rel" : "canonical",
+            "href" : "#"
+          }
+        } ]
+      } ]
     },
-    "fbComments": false,
-    "linkedInShare": false,
-    "fbShare": false
+    "fbComments" : false,
+    "linkedInShare" : false,
+    "fbShare" : false
   },
-  "topics": [
-    {
-      "name": "Bismillah",
-      "url": "/java/bismillah",
-      "seo": {
-        "title": "Bismillah"
-      }
+  "blocks" : {
+    "SQUIRE_BLOCK" : {
+      "title" : "Thumb Block",
+      "url" : "#",
+      "childs" : [ {
+        "name" : "Video Tutorial",
+        "url" : "#",
+        "icon" : "fas fa-desktop fa-2x",
+        "summery" : "Please Follow this link for see all video tutorial from YouTube. Here your will get lots of tutorial."
+      }, {
+        "name" : "বাংলা টিউটোরিয়াল",
+        "url" : "#",
+        "icon" : "fas fa-file fa-2x",
+        "summery" : "সাইটের সব বাংলা টিউটোরিয়াল  দেখতে এই লিংক এ ক্লিক করুন, YouTube থেকে দেখতে পাবেন।"
+      } ]
     },
-    {
-      "name": "Environment Setup",
-      "url": "/java/environment-Setup",
-      "childs": [
-        {
-          "name": "JDK Setup",
-          "url": "/java/environment-Setup/jdk-setup"
-        },
-        {
-          "name": "IDE Setup",
-          "url": "/java/environment-Setup/ide-setup"
-        }
-      ]
-    },
-    {
-      "name": "Input Output",
-      "url": "/java/input-output"
+    "LIST_BLOCK" : {
+      "title" : "List Block",
+      "url" : "#",
+      "childs" : [ {
+        "name" : "Popular Tutorials",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Java",
+          "url" : "#"
+        }, {
+          "name" : "Software Testing",
+          "url" : "#"
+        }, {
+          "name" : "Java Certifications",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Recent Uploaded Tutorials",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Grails",
+          "url" : "#"
+        }, {
+          "name" : "Bash Scripts",
+          "url" : "#"
+        }, {
+          "name" : "Nginx",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Upcomming Tutorials",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Python",
+          "url" : "#"
+        }, {
+          "name" : "Spring Boot",
+          "url" : "#"
+        }, {
+          "name" : "Hibernate",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Beginner",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Environment Preparation",
+          "url" : "#"
+        }, {
+          "name" : "IDE",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Example Codes",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Java",
+          "url" : "#"
+        }, {
+          "name" : "PHP",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "SQA",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "BDD Automation",
+          "url" : "#"
+        }, {
+          "name" : "TestRail",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Computer Programming",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Java",
+          "url" : "#"
+        }, {
+          "name" : "Java Advanced",
+          "url" : "#"
+        }, {
+          "name" : "Java Script",
+          "url" : "#"
+        }, {
+          "name" : "Type Script",
+          "url" : "#"
+        }, {
+          "name" : "PHP",
+          "url" : "#"
+        }, {
+          "name" : "C#",
+          "url" : "#"
+        }, {
+          "name" : "Python",
+          "url" : "#"
+        }, {
+          "name" : "C++",
+          "url" : "#"
+        }, {
+          "name" : "Groovy",
+          "url" : "#"
+        }, {
+          "name" : "Kotlin",
+          "url" : "#"
+        }, {
+          "name" : "Bash Scripting",
+          "url" : "#"
+        }, {
+          "name" : "PowerShell",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Computer Science",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Data Structure",
+          "url" : "#"
+        }, {
+          "name" : "Algorithm",
+          "url" : "#"
+        }, {
+          "name" : "Design Pattern",
+          "url" : "#"
+        }, {
+          "name" : "Assembly",
+          "url" : "#"
+        }, {
+          "name" : "Digital Electronics",
+          "url" : "#"
+        }, {
+          "name" : "Operating System",
+          "url" : "#"
+        }, {
+          "name" : "Compiler Design",
+          "url" : "#"
+        }, {
+          "name" : "Data Mining",
+          "url" : "#"
+        }, {
+          "name" : "Microprocessors",
+          "url" : "#"
+        }, {
+          "name" : "Object Oriented Programming (OOP)",
+          "url" : "#"
+        }, {
+          "name" : "UML",
+          "url" : "#"
+        }, {
+          "name" : "Draw.io",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Library & Framework",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Java servlet",
+          "url" : "#"
+        }, {
+          "name" : "Hibernate",
+          "url" : "#"
+        }, {
+          "name" : "Spring Boot",
+          "url" : "#"
+        }, {
+          "name" : "Grails",
+          "url" : "#"
+        }, {
+          "name" : "CakePHP",
+          "url" : "#"
+        }, {
+          "name" : "Laravel",
+          "url" : "#"
+        }, {
+          "name" : "Lumen",
+          "url" : "#"
+        }, {
+          "name" : ".NET Core",
+          "url" : "#"
+        }, {
+          "name" : "LinQ",
+          "url" : "#"
+        }, {
+          "name" : "Entity Framework",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Database",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "SQL",
+          "url" : "#"
+        }, {
+          "name" : "MySQL",
+          "url" : "#"
+        }, {
+          "name" : "SQLite",
+          "url" : "#"
+        }, {
+          "name" : "MS SQL",
+          "url" : "#"
+        }, {
+          "name" : "Oracle Database",
+          "url" : "#"
+        }, {
+          "name" : "PostGreSQL",
+          "url" : "#"
+        }, {
+          "name" : "H2",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Web",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "HTML",
+          "url" : "#"
+        }, {
+          "name" : "CSS",
+          "url" : "#"
+        }, {
+          "name" : "SEO",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Unix",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "CentOS",
+          "url" : "#"
+        }, {
+          "name" : "Xen Server",
+          "url" : "#"
+        }, {
+          "name" : "Server Packages",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "DevOps",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Ansible",
+          "url" : "#"
+        }, {
+          "name" : "Docker",
+          "url" : "#"
+        }, {
+          "name" : "Jenkins",
+          "url" : "#"
+        }, {
+          "name" : "Bamboo",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Security",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Kali Linux",
+          "url" : "#"
+        }, {
+          "name" : "Penetration Testing",
+          "url" : "#"
+        }, {
+          "name" : "Windows Firewall",
+          "url" : "#"
+        }, {
+          "name" : "Ethical Hacking",
+          "url" : "#"
+        }, {
+          "name" : "Metasploit",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Development",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "JIRA Confluence",
+          "url" : "#"
+        }, {
+          "name" : "Trello",
+          "url" : "#"
+        }, {
+          "name" : "GitHub",
+          "url" : "#"
+        }, {
+          "name" : "Bitbucket",
+          "url" : "#"
+        }, {
+          "name" : "Git VCS",
+          "url" : "#"
+        }, {
+          "name" : "Gradle",
+          "url" : "#"
+        }, {
+          "name" : "Webpack",
+          "url" : "#"
+        }, {
+          "name" : "Composer",
+          "url" : "#"
+        }, {
+          "name" : "Yarn / Npm",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Application",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Snagit",
+          "url" : "#"
+        }, {
+          "name" : "Camtasia",
+          "url" : "#"
+        }, {
+          "name" : "Balsamiq Wireframes",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "How To",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Create a pull request",
+          "url" : "#"
+        }, {
+          "name" : "Own Website",
+          "url" : "#"
+        }, {
+          "name" : "Setup VPN PPTP on windows 10",
+          "url" : "#"
+        }, {
+          "name" : "How to remote desktop?",
+          "url" : "#"
+        }, {
+          "name" : "How to use TeamViewer?",
+          "url" : "#"
+        }, {
+          "name" : "Copy Wordpress site local to CPanel",
+          "url" : "#"
+        }, {
+          "name" : ".htaccess",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "General",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Microsoft Word",
+          "url" : "#"
+        }, {
+          "name" : "Microsoft Excel",
+          "url" : "#"
+        }, {
+          "name" : "Microsoft Power Point",
+          "url" : "#"
+        }, {
+          "name" : "Microsoft Outlook",
+          "url" : "#"
+        }, {
+          "name" : "GMail",
+          "url" : "#"
+        }, {
+          "name" : "Google Doc",
+          "url" : "#"
+        }, {
+          "name" : "Google Sheet",
+          "url" : "#"
+        }, {
+          "name" : "Google Slides",
+          "url" : "#"
+        }, {
+          "name" : "Google Drive",
+          "url" : "#"
+        }, {
+          "name" : "Drop Box",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "IT Help",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Windows Installations",
+          "url" : "#"
+        }, {
+          "name" : "Router Configurations",
+          "url" : "#"
+        }, {
+          "name" : "Ubuntu Installations",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Wiki",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "Clean Code",
+          "url" : "#"
+        }, {
+          "name" : "YML",
+          "url" : "#"
+        }, {
+          "name" : "JSON",
+          "url" : "#"
+        }, {
+          "name" : "Ascii Doctor",
+          "url" : "#"
+        }, {
+          "name" : "Markdown",
+          "url" : "#"
+        } ]
+      }, {
+        "name" : "Interview Questions",
+        "url" : "#",
+        "childs" : [ {
+          "name" : "OOP",
+          "url" : "#"
+        } ]
+      } ]
     }
-  ],
-  "blocks": {
-    "SQUIRE_BLOCK": {
-      "title": "Thumb Block",
-      "url": "#",
-      "childs": [
-        {
-          "name": "Tutorial",
-          "url": "/java",
-          "icon": "fas fa-desktop fa-2x",
-          "summery": "Please Follow this link for see all video tutorial from YouTube. Here your will get lots of tutorial."
-        },
-        {
-          "name": "বাংলা টিউটোরিয়াল",
-          "url": "/java-video",
-          "icon": "fas fa-file fa-2x",
-          "summery": "সাইটের সব বাংলা টিউটোরিয়াল  দেখতে এই লিংক এ ক্লিক করুন, YouTube থেকে দেখতে পাবেন।"
-        }
-      ]
-    },
-    "LIST_BLOCK": {
-      "title": "List Block",
-      "url": "#",
-      "childs": [
-        {
-          "name": "Popular Tutorials",
-          "url": "#",
-          "childs": [
-            {
-              "name": "Java Basic",
-              "url": "#"
-            },
-            {
-              "name": "Java Advanced",
-              "url": "#"
-            },
-            {
-              "name": "Java Certifications",
-              "url": "#"
-            }
-          ]
-        },
-        {
-          "name": "Upcoming Tutorials",
-          "url": "#",
-          "childs": [
-            {
-              "name": "Python Basic",
-              "url": "#"
-            },
-            {
-              "name": "React JS",
-              "url": "#"
-            },
-            {
-              "name": "PHP Laravel",
-              "url": "#"
-            }
-          ]
-        },
-        {
-          "name": "Recent Uploaded Tutorial",
-          "url": "#",
-          "childs": [
-            {
-              "name": "Java Basic",
-              "url": "#"
-            },
-            {
-              "name": "Java Advanced",
-              "url": "#"
-            },
-            {
-              "name": "Java Certifications",
-              "url": "#"
-            }
-          ]
-        }
-      ]
-    }
-  },
-  "findReplace": {
-    "FACEBOOK_PAGE": "https://www.facebook.com/hmtmcsecom",
-    "GITHUB_PAGE": "https://github.com/hmtmcse-com",
-    "YOUTUBE_PAGE": "https://www.youtube.com/hmtmcse",
-    "PRIVACY": "/static-page/privacy",
-    "TERMS_AND_CONDITION": "/static-page/terms-and-condition",
-    "ABOUT": "/static-page/about"
   }
 }
