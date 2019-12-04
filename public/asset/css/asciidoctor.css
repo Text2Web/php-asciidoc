@@ -1059,7 +1059,7 @@
     border-radius: 4px;
     word-wrap: break-word;
     padding: 1em;
-    font-size: .8125em
+    font-size: 1em
 }
 
 .asciidoctor-content .literalblock pre.nowrap, .literalblock pre[class].nowrap, .listingblock pre.nowrap, .listingblock pre[class].nowrap {
