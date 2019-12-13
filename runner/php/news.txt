@@ -767,7 +767,7 @@ PHP                                                                        NEWS
   . Added fpm_get_status function. (Till Backhaus)
   . Fixed bug #62596 (getallheaders() missing with PHP-FPM). (Remi)
   . Fixed bug #69031 (Long messages into stdout/stderr are truncated
-    incorrectly) - added new log related FPM configuration options:
+    incorrectly) new log related FPM configuration options:
     log_limit, log_buffering and decorate_workers_output. (Jakub Zelenka)
 
 - ftp:
