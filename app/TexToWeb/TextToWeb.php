@@ -44,19 +44,12 @@ class TextToWeb
         $textToWebData->absolutePath = $path;
         $textToWebData->docRoot = $config->docRoot;
 
-        $navigation = $textToWebData->descriptor;
-        if ($isOutline){
-            if (isset($textToWebData->descriptor->relatedTopics)){
-                $navigation = new stdClass();
-                $navigation->topics = $textToWebData->descriptor->relatedTopics;
-            }else{
-                $navigation = null;
-            }
+        if (isset($textToWebData->descriptor->relatedTopics)){
+            $textToWebData->relatedTopicNav = $this->getNavigation($textToWebData->descriptor->relatedTopics, $textToWebData->urlKey);
         }
-
-
-
-        $textToWebData->topicNav = $this->getNavigation($navigation, $textToWebData->urlKey);
+        if (isset($textToWebData->descriptor->topics)){
+            $textToWebData->topicNav = $this->getNavigation($textToWebData->descriptor->topics, $textToWebData->urlKey);
+        }
         return $textToWebData;
     }
 
@@ -99,12 +92,12 @@ class TextToWeb
         return $textToWebData;
     }
 
-    public function getNavigation($descriptor, $currentUrlKey){
+    public function getNavigation($topics, $currentUrlKey){
         $topicNav = new TopicNav();
-        if (isset($descriptor->topics) && is_array($descriptor->topics)){
+        if (isset($topics) && is_array($topics)){
             $itemIndex = 1;
             $navIndex = 1;
-            foreach ($descriptor->topics as $topic){
+            foreach ($topics as $topic){
                 $ttwNav = new TTWNav();
                 $navKey = "";
                 if (isset($topic->seo->title)){
@@ -148,9 +141,7 @@ class TextToWeb
                 $topicNav->meta[$navKey] = $ttwNav;
 
                 if (isset($topic->childs) && is_array($topic->childs)){
-                    $childTopic = new stdClass();
-                    $childTopic->topics = $topic->childs;
-                    $childs = $this->getNavigation($childTopic, $currentUrlKey);
+                    $childs = $this->getNavigation($topic->childs, $currentUrlKey);
                     $topicNav->nav[$navKey]->childs = $childs->nav;
                     foreach ($childs->meta as $key => $child){
                         $topicNav->meta[$key] = $child;

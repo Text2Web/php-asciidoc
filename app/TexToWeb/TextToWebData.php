@@ -20,5 +20,6 @@ class TextToWebData
     public $absolutePath;
     public $docRoot;
     public $topicNav = [];
+    public $relatedTopicNav = [];
 
 }
